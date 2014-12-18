@@ -6,7 +6,7 @@ Working on this assignment:
 
 
 This is a big-data analytic application to determine the sentiment of various topics from the tweet data. 
-We determined topic by extracting their \#hashtags. We then calculated a sentiment score for each topic.
+We determined topics using their \#hashtags. We then calculated a sentiment score for each topic.
 
 
 
