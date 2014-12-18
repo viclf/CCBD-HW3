@@ -1,8 +1,8 @@
 ##Cloud Computing HW3
 
 Working on this assignment:
-vf2221 victor Ferrand
-pwn2107 Peter Wakahiu Njenga
+- vf2221 victor Ferrand
+ -pwn2107 Peter Wakahiu Njenga
 
 
 This is a big-data analytic application to determine the sentiment of various topics from the tweet data. 
@@ -40,5 +40,9 @@ to incorporate more sophisticated sentiment analysis.
 
 
 Github source code:
-https://github.com/viclf/CCBD-HW3
-Keys have been removed from the source code for security.
++https://github.com/viclf/CCBD-HW3
++Keys have been removed from the source code for security.
+
+1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list. 
