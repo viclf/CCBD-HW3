@@ -9,11 +9,15 @@ This is a big-data analytic application to determine the sentiment of various to
 We determined which topic tweets were associated by extracting their \#hashtags. We then calculated a sentiment
 score for each topic.
 
+
+
 ELASTIC MAP-REDUCE
 
 We created a cluster of nodes and ran map-reduce on ir. Our application can scale to very large 
 datasets because the cluster size is variable and our application in inplmented on AWS EMR. 
 The application was written in Java and AWS API.
+
+
 
 CLOUD STORAGE
 
@@ -21,6 +25,8 @@ We utilized Amazon's simple storage services - S3 - for both out input and outpu
 performed on the dataset provided by the course staff https://s3.amazonaws.com/ColumbiaCloud/final/Assignment3Tweets-2.
 Similary output files were stored on s3 buckets. This method of implementation proved efficient since s3 is a native 
 storage system designed for interoperability among tools.
+
+
 
 SENTIMENT ANALYSIS
 
@@ -32,6 +38,8 @@ reducer then performs a sum-reduction of {Key,value} pairs with the same hashtag
 perform more sophisticated sentiment analysis with opensource software such as stanford NLP library
 by were not successfull. Utilimately our approach is modular therefore the mapper task can be updated
 to incorporate more sophisticated sentiment analysis.
+
+
 
 
 Github source code:
