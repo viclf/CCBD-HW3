@@ -15,7 +15,9 @@ We configured and created a cluster of nodes to ran our map-reduce applicatioon.
 datasets because the cluster size is variable and our application in implemented on AWS EMR.
 The number of nodes (mapper and reducers) provisioned can be adjusted to match the size of
 dataset. In addition, the dataset is based on HDFS, a distributed file system that supports
-high aggregate bandwith to nodes. The application was written in Java and AWS API.
+high aggregate bandwith to nodes. The application was written in Java and AWS API. The **mapper** function takes a
+line of text with the tweet and calculates it's sentiment. It outputs a \<key, value\> pair for
+every topic. The **reducer** performs a sum reduction.
 
 
 
