@@ -6,7 +6,7 @@ pwn2107 Peter Wakahiu Njenga
 
 
 This is a big-data analytic application to determine the sentiment of various topics from the tweet data. 
-We determined which topic tweets were associated by extracting their #hashtags. We then calculated a sentiment
+We determined which topic tweets were associated by extracting their \#hashtags. We then calculated a sentiment
 score for each topic.
 
 ELASTIC MAP-REDUCE
@@ -24,7 +24,7 @@ SENTIMENT ANALYSIS
 A naive Sentiment analysis was performed by counting the frequency of positive/negative words. 
 We implemented a dictictionary of positive/negative words sourced from the internet. Each mapper task
 receives as input a line of text containing the body of the tweet, we analysed only those tweets with
-#hashtags in them. The mapper emits a {Key,value} pair constiting of {Hashtag,sentimentScore}. The 
+\#hashtags in them. The mapper emits a {Key,value} pair constiting of {Hashtag,sentimentScore}. The 
 reducer then performs a sum-reduction of {Key,value} pairs with the same hashtags. We attempted to 
 perform more sophisticated sentiment analysis with opensource software such as stanford NLP library
 by were not successfull. Utilimately our approach is modular therefore the mapper task can be updated
