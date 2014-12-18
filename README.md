@@ -33,8 +33,8 @@ system like HDFS. All other metadata was also logged to S3.
 A naive Sentiment analysis was performed by counting the frequency of positive/negative words. 
 We implemented a dictionary of positive/negative words sourced from the internet. Each mapper task
 receives as input a line of text containing the body of the tweet, we analysed only those tweets with
-\#hashtags in them. The mapper emits a {Key,value} pair consisting of {Hashtag,sentimentScore}. The 
-reducer then performs a sum-reduction of {Key,value} pairs with the same hashtags. We attempted to 
+\#hashtags in them. The mapper emits a \<Key,value\> pair consisting of {Hashtag,sentimentScore}. The 
+reducer then performs a sum-reduction of \<Key,value\> pairs with the same hashtags. We attempted to 
 perform more sophisticated sentiment analysis with open source software such as stanford NLP library
 by were not successful. Ultimately our approach is modular therefore the mapper task can be updated
 to incorporate more sophisticated sentiment analysis.
