@@ -41,46 +41,21 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
     * Read a text file of positive and negative words for sentiment analysis.
     */
     protected void setup(Context context) throws IOException, FileNotFoundException{
-      //TODO read words from s3.
 
       //http://pastebin.com/48nHpCtR
+      //http://pastebin.com/AZpSYTHW
+      List<String> tokenList = splitter(DictionaryContants.negStr);
 
-      String mapperId = "" + context.getTaskAttemptID();
-
-      String dirPath = "/Users/wakahiu/Documents/school/CCBD/HW3/ccbd/constants/";
-      //Read positive words.
-
-      FileInputStream inputStream = new FileInputStream(dirPath + "/pos.txt");
-      try {
-          String fileContents = IOUtils.toString(inputStream);
-
-          fileContents = fileContents.toLowerCase();
-
-          List<String> tokenList = splitter(fileContents);
-
-          for(String word : tokenList ){
-            
-            posWords.add(word);
-          }
-      } finally {
-          inputStream.close();
+      for(String word : tokenList ){
+      //System.out.print(word + ",");
+        negWords.add(word);
       }
 
-      
-      inputStream = new FileInputStream(dirPath + "/neg.txt");
-      try {
-          String fileContents = IOUtils.toString(inputStream);
+      tokenList = splitter(DictionaryContants.posStr);
 
-          fileContents = fileContents.toLowerCase();
-
-          List<String> tokenList = splitter(fileContents);
-
-          for(String word : tokenList ){
-            
-            negWords.add(word);
-          }
-      } finally {
-          inputStream.close();
+      for(String word : tokenList ){
+      //System.out.print(word + ",");
+        posWords.add(word);
       }
 
     }
@@ -115,9 +90,13 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
       if(hashTagList.isEmpty() )  return;
 
+      //SentimentAnalyzer sentimentAnalyzer = new SentimentAnalyzer();
+
+      //int sentiment = sentimentAnalyzer.findSentiment(message);
+
       int sentiment = getSentiment(message);
 
-      System.out.println(sentiment);
+      //System.out.println(sentiment);
 
       IntWritable s = new IntWritable(sentiment);
 
@@ -146,9 +125,12 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
         for(String word : tokenList){
           if( posWords.contains(word) )
             sentiment++;
-          else if( negWords.contains(word) )
+          if( negWords.contains(word) )
             sentiment--;
         }
         return sentiment;
     }
+
+    //Not proud of this.
+
   }

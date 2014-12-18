@@ -1,39 +1,16 @@
 package hw3.elastic_map_red;
 
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.OutputStreamWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
-
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.DescribeTableRequest;
-import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
-import com.amazonaws.services.dynamodbv2.model.GetItemResult;
-import com.amazonaws.services.dynamodbv2.model.PutItemRequest;
-import com.amazonaws.services.dynamodbv2.model.PutItemResult;
-import com.amazonaws.services.dynamodbv2.model.TableDescription;
-import com.amazonaws.services.dynamodbv2.util.Tables;
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient;
 import com.amazonaws.services.elasticmapreduce.model.ClusterSummary;
 import com.amazonaws.services.elasticmapreduce.model.HadoopJarStepConfig;
@@ -48,20 +25,6 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.Bucket;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.sns.AmazonSNS;
-import com.amazonaws.services.sns.AmazonSNSClient;
-import com.amazonaws.services.sns.model.CreateTopicRequest;
-import com.amazonaws.services.sns.model.CreateTopicResult;
-import com.amazonaws.services.sns.model.GetSubscriptionAttributesResult;
-import com.amazonaws.services.sns.model.PublishRequest;
-import com.amazonaws.services.sns.model.PublishResult;
-import com.amazonaws.services.sns.model.SubscribeRequest;
-import com.amazonaws.services.sns.model.SubscribeResult;
-import com.amazonaws.services.sqs.AmazonSQS;
-import com.amazonaws.services.sqs.AmazonSQSClient;
-import com.amazonaws.services.sqs.model.CreateQueueRequest;
-import com.amazonaws.services.sqs.model.CreateQueueResult;
-import com.amazonaws.services.sqs.model.SendMessageRequest;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 
@@ -86,17 +49,17 @@ public class EMRLauncher{
       emrClient.setRegion(usEast1);
     }
 
-    public static void main( String [] args) throws IOException{
+    public static void main( String [] args){
       init();
 
       String bucketName = "s3n://" + args[0];
-      String logName = bucketName + "/log-"+UUID.randomUUID() + ".log";
+
+      String logName = bucketName + "/logs/log-"+UUID.randomUUID() + ".log";
 
       System.out.println("Logging files to:\t" + logName );
       List<String> inputArgs = new ArrayList<String>();
 
       inputArgs.add(bucketName+"/input");
-      //inputArgs.add(bucketName+"/output");
       inputArgs.add(bucketName+"/output-" + UUID.randomUUID() );
 
       /*
@@ -146,34 +109,6 @@ public class EMRLauncher{
       */
       RunJobFlowResult runJobFlowResult = emrClient.runJobFlow(runJobFlowRequest);
       System.out.println("Job id: " + runJobFlowResult.getJobFlowId());
-
-      /*
-      * Check the status of the running job.
-      */
-      int i = 0;
-      STATUS_LOOP: while(true){
-
-        /*
-        DescribeJobFlowRequest describeJobFlowRequest = new DescribeJobFlowRequest()
-          .withJobFlowIds(runJobFlowResult.getJobFlowId())
-          
-        DescribeJobFlowResult describeJobFlowResult = emrClient.describeJobFlows(describeJobFlowRequest);
-
-        ListStepsResult listStepsResult = emrClient.ListSteps( listStepsRequest );
-
-        StepExecutionStatusDetail stepExecutionStatusDetail = stepDetail.getExecutionStatusDetail();
-
-        String state = stepExecutionStatusDetail.getState();
-
-        System.out.println(state);
-
-        Thread.sleep(500);
-
-        */
-
-        if( i > 10) break;
-        i++;
-      }
 
     }
 }

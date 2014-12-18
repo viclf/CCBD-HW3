@@ -1,6 +1,9 @@
 /Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/S3Downloader.java
 /Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/TokenizerMapper.java
+/Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/DictionaryContants.java
+/Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/TwitStreamer.java
 /Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/WordCount.java
 /Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/IntSumReducer.java
+/Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/SentimentAnalyzer.java
 /Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/EMRLauncher.java
 /Users/wakahiu/Documents/school/CCBD/HW3/ccbd/src/main/java/hw3/elastic_map_red/S3Uploader.java

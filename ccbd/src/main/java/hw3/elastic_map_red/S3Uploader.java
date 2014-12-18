@@ -129,6 +129,17 @@ public class S3Uploader{
 	    		s3Client.putObject( new PutObjectRequest(bucketName, keyName, file ) );
 	    	}
 
+
+            fileList = listFiles(new File("/Users/wakahiu/Documents/school/CCBD/HW3/ccbd/constants"));
+
+            System.out.println("Uploading constant files ");
+            for(File file : fileList){
+                String keyName = "constants/"+file.getName();
+                System.out.println(" - " + keyName );
+
+                s3Client.putObject( new PutObjectRequest(bucketName, keyName, file ) );
+            }
+
 	    	/*
 	    	* Upload the jar.
 	    	*/

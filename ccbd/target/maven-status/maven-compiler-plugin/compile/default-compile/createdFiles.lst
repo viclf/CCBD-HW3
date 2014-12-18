@@ -1,6 +1,10 @@
 hw3/elastic_map_red/WordCount.class
 hw3/elastic_map_red/S3Uploader.class
+hw3/elastic_map_red/SentimentAnalyzer.class
 hw3/elastic_map_red/IntSumReducer.class
 hw3/elastic_map_red/TokenizerMapper.class
 hw3/elastic_map_red/EMRLauncher.class
+hw3/elastic_map_red/TwitStreamer.class
+hw3/elastic_map_red/TwitStreamer$1.class
+hw3/elastic_map_red/DictionaryContants.class
 hw3/elastic_map_red/S3Downloader.class

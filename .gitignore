@@ -38,3 +38,6 @@ Thumbs.db
 
 # Authentication
 *.properties
+
+#Map-reduce output
+*output*
