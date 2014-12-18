@@ -1,6 +1,5 @@
 Cloud Computing HW3
 
-
 Working on this assignment:
 vf2221 victor Ferrand
 pwn2107 Peter Wakahiu Njenga
