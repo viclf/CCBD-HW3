@@ -1,4 +1,4 @@
-Cloud Computing HW3
+##Cloud Computing HW3
 
 Working on this assignment:
 vf2221 victor Ferrand
@@ -11,7 +11,7 @@ score for each topic.
 
 
 
-#ELASTIC MAP-REDUCE
+####ELASTIC MAP-REDUCE
 
 We created a cluster of nodes and ran map-reduce on ir. Our application can scale to very large 
 datasets because the cluster size is variable and our application in inplmented on AWS EMR. 
@@ -19,7 +19,7 @@ The application was written in Java and AWS API.
 
 
 
-#CLOUD STORAGE
+####CLOUD STORAGE
 
 We utilized Amazon's simple storage services - S3 - for both out input and output files. The tweet analytics were 
 performed on the dataset provided by the course staff https://s3.amazonaws.com/ColumbiaCloud/final/Assignment3Tweets-2.
@@ -28,7 +28,7 @@ storage system designed for interoperability among tools.
 
 
 
-#SENTIMENT ANALYSIS
+####SENTIMENT ANALYSIS
 
 A naive Sentiment analysis was performed by counting the frequency of positive/negative words. 
 We implemented a dictictionary of positive/negative words sourced from the internet. Each mapper task
