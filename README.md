@@ -24,8 +24,8 @@ every topic. The **reducer** performs a sum reduction.
 #####CLOUD STORAGE
 We utilized Amazon's simple storage services - S3 - for both out input and output files. The tweet analytics were 
 performed on the [dataset](https://s3.amazonaws.com/ColumbiaCloud/final/Assignment3Tweets-2) provided by the course staff.
-Similarly output files were stored on s3 buckets. This method of implementation proved efficient since s3 is a native 
-storage system designed for interoperability among tools.
+Similarly output files were stored on s3 buckets. This method of implementation proved efficient since s3 block-based file
+system like HDFS. All other metadata was also logged to S3.
 
 
 
@@ -39,7 +39,13 @@ perform more sophisticated sentiment analysis with open source software such as 
 by were not successful. Ultimately our approach is modular therefore the mapper task can be updated
 to incorporate more sophisticated sentiment analysis.
 
-
+#####RESULTS
+The final output of HDFS is contained in */output*. The merged results are in *merged.txt*
+Bellow are plots showing topics and their sentiments.
+**October**
+![Alt text](https://github.com/viclf/CCBD-HW3/blob/master/ccbd/plotOct.png?raw=true "November")
+**November**
+![Alt text](https://github.com/viclf/CCBD-HW3/blob/master/ccbd/plotNov.png?raw=true "November")
 
 
 Github source code:
